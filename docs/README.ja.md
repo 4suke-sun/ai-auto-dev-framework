@@ -156,15 +156,37 @@ Auto-mode は以下のポイントで停止し、人間の承認を待ちます:
 
 ### 既存リポジトリへの導入
 
-既にプロジェクトがあり、後からガードレールを追加したい場合。Claude Code セッションで:
+既にプロジェクトがあり、後からガードレールを追加したい場合。
 
+#### ワンライナーで導入
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/4suke-sun/ai-auto-dev-framework/main/scripts/install.sh | bash
 ```
-/install-framework
+
+#### 手動で導入（中身を確認したい場合）
+
+```bash
+# フレームワークファイルを取得（クローンではない、履歴なし）
+git remote add framework https://github.com/4suke-sun/ai-auto-dev-framework.git
+git fetch framework main
+
+# ガードレールファイルをプロジェクトにコピー
+git checkout framework/main -- .claude/ CLAUDE.md .editorconfig .gitleaks.toml
+git checkout framework/main -- .github/workflows/gitleaks.yml .github/workflows/codeql.yml
+git checkout framework/main -- .github/workflows/security-review.yml .github/dependabot.yml
+git checkout framework/main -- .github/CODEOWNERS .github/pull_request_template.md
+
+# 一時リモートを削除
+git remote remove framework
+
+# コミット
+git add -A && git commit -m "chore: add ai-auto-dev-framework guardrails"
 ```
 
-`.claude/`、`CLAUDE.md`、セキュリティワークフロー、フックを既存リポに選択的にコピーします。ソースコードや既存の CI には触れません。
+導入後、Claude Code を開いて `setup-repository` を実行すれば GitHub Settings も自動構成されます。
 
-手動手順の詳細: [.claude/skills/install-framework/SKILL.md](../.claude/skills/install-framework/SKILL.md)
+詳細な手順（カスタマイズ含む）: [.claude/skills/install-framework/SKILL.md](../.claude/skills/install-framework/SKILL.md)
 
 ### CI のジョブを増減したい
 
