@@ -160,7 +160,7 @@ Already have a project and want to add the guardrails?
 #### Quick install (one line)
 
 ```bash
-curl -sL https://raw.githubusercontent.com/4suke-sun/ai-auto-dev-framework/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/4suke-sun/ai-auto-dev-framework/main/scripts/install.sh | bash
 ```
 
 #### Manual install (if you prefer to see what's happening)

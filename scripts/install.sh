@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # ai-auto-dev-framework installer
-# Usage: curl -sL https://raw.githubusercontent.com/4suke-sun/ai-auto-dev-framework/main/scripts/install.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/4suke-sun/ai-auto-dev-framework/main/scripts/install.sh | bash
 
 REPO="https://github.com/4suke-sun/ai-auto-dev-framework.git"
 REMOTE_NAME="framework"

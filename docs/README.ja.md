@@ -161,7 +161,7 @@ Auto-mode は以下のポイントで停止し、人間の承認を待ちます:
 #### ワンライナーで導入
 
 ```bash
-curl -sL https://raw.githubusercontent.com/4suke-sun/ai-auto-dev-framework/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/4suke-sun/ai-auto-dev-framework/main/scripts/install.sh | bash
 ```
 
 #### 手動で導入（中身を確認したい場合）
