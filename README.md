@@ -155,15 +155,29 @@ See [docs/agent-guides/hitl-gates.md](docs/agent-guides/hitl-gates.md) for detai
 
 ### Installing into an existing repository
 
-Already have a project and want to add the guardrails? Run this in your Claude Code session:
+Already have a project and want to add the guardrails? Run these commands in your project root:
 
+```bash
+# Fetch framework files (no clone, no history)
+git remote add framework https://github.com/4suke-sun/ai-auto-dev-framework.git
+git fetch framework main
+
+# Copy guardrail files into your project
+git checkout framework/main -- .claude/ CLAUDE.md .editorconfig .gitleaks.toml
+git checkout framework/main -- .github/workflows/gitleaks.yml .github/workflows/codeql.yml
+git checkout framework/main -- .github/workflows/security-review.yml .github/dependabot.yml
+git checkout framework/main -- .github/CODEOWNERS .github/pull_request_template.md
+
+# Clean up the temporary remote
+git remote remove framework
+
+# Commit
+git add -A && git commit -m "chore: add ai-auto-dev-framework guardrails"
 ```
-/install-framework
-```
 
-This selectively copies `.claude/`, `CLAUDE.md`, security workflows, and hooks into your existing repo without touching your source code or existing CI.
+After this, `.claude/skills/` is available. Open Claude Code and ask it to run `setup-repository` to configure GitHub Settings.
 
-See [.claude/skills/install-framework/SKILL.md](.claude/skills/install-framework/SKILL.md) for the full manual procedure.
+See [.claude/skills/install-framework/SKILL.md](.claude/skills/install-framework/SKILL.md) for the full procedure including customization steps.
 
 ### Adding/removing CI jobs
 
