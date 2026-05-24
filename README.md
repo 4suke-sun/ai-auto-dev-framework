@@ -155,7 +155,15 @@ See [docs/agent-guides/hitl-gates.md](docs/agent-guides/hitl-gates.md) for detai
 
 ### Installing into an existing repository
 
-Already have a project and want to add the guardrails? Run these commands in your project root:
+Already have a project and want to add the guardrails?
+
+#### Quick install (one line)
+
+```bash
+curl -sL https://raw.githubusercontent.com/4suke-sun/ai-auto-dev-framework/main/scripts/install.sh | bash
+```
+
+#### Manual install (if you prefer to see what's happening)
 
 ```bash
 # Fetch framework files (no clone, no history)
@@ -175,7 +183,7 @@ git remote remove framework
 git add -A && git commit -m "chore: add ai-auto-dev-framework guardrails"
 ```
 
-After this, `.claude/skills/` is available. Open Claude Code and ask it to run `setup-repository` to configure GitHub Settings.
+After installation, open Claude Code and ask it to run `setup-repository` to configure GitHub Settings.
 
 See [.claude/skills/install-framework/SKILL.md](.claude/skills/install-framework/SKILL.md) for the full procedure including customization steps.
 

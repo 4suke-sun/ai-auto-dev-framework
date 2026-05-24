@@ -156,7 +156,15 @@ Auto-mode は以下のポイントで停止し、人間の承認を待ちます:
 
 ### 既存リポジトリへの導入
 
-既にプロジェクトがあり、後からガードレールを追加したい場合。プロジェクトルートで以下を実行:
+既にプロジェクトがあり、後からガードレールを追加したい場合。
+
+#### ワンライナーで導入
+
+```bash
+curl -sL https://raw.githubusercontent.com/4suke-sun/ai-auto-dev-framework/main/scripts/install.sh | bash
+```
+
+#### 手動で導入（中身を確認したい場合）
 
 ```bash
 # フレームワークファイルを取得（クローンではない、履歴なし）
@@ -176,7 +184,7 @@ git remote remove framework
 git add -A && git commit -m "chore: add ai-auto-dev-framework guardrails"
 ```
 
-これで `.claude/skills/` が使えるようになります。Claude Code を開いて `setup-repository` を実行すれば GitHub Settings も自動構成されます。
+導入後、Claude Code を開いて `setup-repository` を実行すれば GitHub Settings も自動構成されます。
 
 詳細な手順（カスタマイズ含む）: [.claude/skills/install-framework/SKILL.md](../.claude/skills/install-framework/SKILL.md)
 
