@@ -1,33 +1,33 @@
 ---
 name: self-review-checklist
-description: Run before completing any task. Verifies tests pass, coverage meets threshold, no secrets committed, license check clean, commit messages follow Conventional Commits, and PR template is filled. Use this skill before pushing or creating a PR.
+description: タスク完了前に毎回実行する。テスト通過・カバレッジ閾値達成・シークレット未コミット・ライセンスチェック合格・Conventional Commits 準拠・PRテンプレート記入済みを検証する。プッシュまたは PR 作成前に使用すること。
 ---
 
-# Self-Review Checklist Skill
+# セルフレビューチェックリストスキル
 
-## When to Use
-Before pushing any branch or creating a PR.
+## 使用タイミング
+ブランチをプッシュする前、または PR を作成する前。
 
-## Checklist
+## チェックリスト
 
-Run each command and verify it passes:
+各コマンドを実行し、通過することを確認する:
 
 ```bash
-npm run lint          # Biome lint — must be green
-npm run typecheck     # tsc --noEmit — must be green
-npm run test          # All tests pass
-npm run test:coverage # Coverage >= lines 50% / branches 40%
-npm run build         # Build succeeds
+npm run lint          # Biome lint — グリーンであること
+npm run typecheck     # tsc --noEmit — グリーンであること
+npm run test          # 全テスト通過
+npm run test:coverage # カバレッジ >= lines 50% / branches 40%
+npm run build         # ビルド成功
 ```
 
-Then verify:
+続いて以下を確認:
 
-- [ ] No secrets in `git diff HEAD~1` (no AKIA*, sk-*, ghp_*, PEM headers)
-- [ ] All commits follow Conventional Commits (`git log --oneline`)
-- [ ] No files outside approved scope were modified
-- [ ] `THIRD_PARTY_LICENSES.json` is up to date if dependencies changed
-- [ ] PR template is fully filled (no placeholder text)
+- [ ] `git diff HEAD~1` にシークレットがない（AKIA*、sk-*、ghp_*、PEM ヘッダーなし）
+- [ ] すべてのコミットが Conventional Commits に準拠している（`git log --oneline`）
+- [ ] 承認されたスコープ外のファイルが変更されていない
+- [ ] 依存関係が変更された場合、`THIRD_PARTY_LICENSES.json` が最新である
+- [ ] PR テンプレートが完全に記入されている（プレースホルダーテキストなし）
 
-## If Anything Fails
+## 失敗した場合
 
-Stop. Do not push. Fix the issue first, then re-run this checklist.
+停止する。プッシュしない。まず問題を修正し、このチェックリストを再実行する。
