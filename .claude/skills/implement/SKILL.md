@@ -1,27 +1,27 @@
 ---
 name: implement
-description: Use during the implementation phase. Enforces test-first approach, strict scope adherence, Biome formatting, and TypeScript strict mode compliance. Run after plan is approved.
+description: 実装フェーズで使用する。テストファースト・厳密なスコープ遵守・Biome フォーマット・TypeScript strict モード準拠を強制する。plan の承認後に実行すること。
 ---
 
-# Implement Skill
+# 実装スキル
 
-## When to Use
-After `plan` skill approval, when writing code.
+## 使用タイミング
+`plan` スキルの承認後、コードを書く段階。
 
-## Rules
+## ルール
 
-- **Test first**: Write or update tests before changing production code.
-- **Scope**: Only modify files identified in the approved plan.
-- **TypeScript**: `strict: true`, no `any`, no `@ts-ignore`.
-- **Format**: Run `npm run check` after every file edit.
-- **No secrets**: Never hardcode credentials; use environment variables.
-- **No premature abstraction**: Three duplications minimum before extracting.
-- **Comments**: Only for non-obvious WHY, never WHAT.
+- **テストファースト**: プロダクションコードを変更する前にテストを書く・更新する。
+- **スコープ遵守**: 承認された計画で特定されたファイルのみを変更する。
+- **TypeScript**: `strict: true`、`any` 禁止、`@ts-ignore` 禁止。
+- **フォーマット**: ファイル編集後に毎回 `npm run check` を実行する。
+- **シークレット禁止**: 認証情報をハードコードしない。環境変数を使用する。
+- **早すぎる抽象化の禁止**: 抽出する前に最低3回の重複が必要。
+- **コメント**: 自明でない「なぜ」のみ記述し、「何を」は書かない。
 
-## Checklist Before Marking Done
+## 完了前チェックリスト
 
-- [ ] All new/modified code has corresponding tests
-- [ ] `npm run typecheck` passes
-- [ ] `npm run lint` passes
-- [ ] No secrets or PII in changed files
-- [ ] Only planned-scope files were modified
+- [ ] 新規・変更コードに対応するテストがある
+- [ ] `npm run typecheck` が通る
+- [ ] `npm run lint` が通る
+- [ ] 変更ファイルにシークレットや個人情報がない
+- [ ] 計画スコープ内のファイルのみが変更されている

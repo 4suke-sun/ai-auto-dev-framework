@@ -1,31 +1,31 @@
 ---
 name: git-commit
-description: Use before every git commit. Verifies staged changes pass lint, typecheck, and secret scan, then writes a Conventional Commits message. Never use git commit --amend.
+description: git commit の前に毎回使用する。ステージされた変更が lint・typecheck・シークレットスキャンを通過することを確認し、Conventional Commits 形式のメッセージを作成する。git commit --amend は使用禁止。
 ---
 
-# Git Commit Skill
+# Git Commit スキル
 
-## When to Use
-Before running `git commit`.
+## 使用タイミング
+`git commit` を実行する前。
 
-## Steps
+## 手順
 
-1. Run `npm run lint` — fix any errors before proceeding.
-2. Run `npm run typecheck` — fix any errors before proceeding.
-3. Run `git diff --cached` — verify only intended files are staged.
-4. Check for secrets: no AKIA*, sk-*, ghp_*, PEM headers in diff.
-5. Write commit message following Conventional Commits:
+1. `npm run lint` を実行 — エラーがあれば先に修正する。
+2. `npm run typecheck` を実行 — エラーがあれば先に修正する。
+3. `git diff --cached` を実行 — 意図したファイルのみがステージされていることを確認する。
+4. シークレットの確認: diff に AKIA*、sk-*、ghp_*、PEM ヘッダーが含まれていないこと。
+5. Conventional Commits に従ってコミットメッセージを作成:
    ```
    type(scope): description
    
-   [optional body]
+   [任意の本文]
    ```
-   Types: `feat` `fix` `chore` `refactor` `docs` `test` `style` `ci` `perf`
-6. Commit: `git commit -m "$(cat <<'EOF'\n<message>\nEOF\n)"`
+   タイプ: `feat` `fix` `chore` `refactor` `docs` `test` `style` `ci` `perf`
+6. コミット: `git commit -m "$(cat <<'EOF'\n<message>\nEOF\n)"`
 
-## Rules
+## ルール
 
-- One logical change per commit.
-- Never use `--amend` on published commits.
-- Never skip hooks (`--no-verify`).
-- If secret detected in staged changes → unstage, remove secret, re-stage.
+- 1コミットにつき1つの論理的変更。
+- 公開済みコミットに `--amend` を使用しない。
+- フックをスキップしない（`--no-verify` 禁止）。
+- ステージされた変更にシークレットが検出された場合 → アンステージし、シークレットを削除し、再ステージする。

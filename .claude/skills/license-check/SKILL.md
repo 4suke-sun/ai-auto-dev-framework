@@ -1,34 +1,34 @@
 ---
 name: license-check
-description: Use when adding new npm or Python dependencies. Verifies license compatibility (no GPL/AGPL in production deps), updates THIRD_PARTY_LICENSES.json, and checks NOTICE file. Required before merging any dependency changes.
+description: npm または Python の新規依存関係を追加する際に使用する。ライセンス互換性を検証し（本番依存に GPL/AGPL 不可）、THIRD_PARTY_LICENSES.json を更新し、NOTICE ファイルを確認する。依存関係変更のマージ前に必須。
 ---
 
-# License Check Skill
+# ライセンスチェックスキル
 
-## When to Use
-Before adding any new dependency to `package.json` or `requirements.txt`.
+## 使用タイミング
+`package.json` または `requirements.txt` に新しい依存関係を追加する前。
 
-## Steps
+## 手順
 
-1. **Check the license** of the package before installing:
+1. インストール前にパッケージの**ライセンスを確認**する:
    ```bash
    npm view <package-name> license
    ```
 
-2. **Blocked licenses** (do not add):
-   - GPL-2.0, GPL-3.0
-   - AGPL-1.0, AGPL-3.0
-   - LGPL (evaluate case-by-case, ask human)
-   - Unlicensed / unknown
+2. **禁止ライセンス**（追加不可）:
+   - GPL-2.0、GPL-3.0
+   - AGPL-1.0、AGPL-3.0
+   - LGPL（ケースバイケースで評価、人間に確認）
+   - ライセンス未記載 / 不明
 
-3. **After adding dependency**, update the license manifest:
+3. **依存関係追加後**、ライセンスマニフェストを更新する:
    ```bash
    npm run licenses
    ```
 
-4. **Verify `THIRD_PARTY_LICENSES.json`** was updated correctly.
+4. **`THIRD_PARTY_LICENSES.json`** が正しく更新されたことを確認する。
 
-5. **Update `NOTICE`** if a new package requires attribution.
+5. 新しいパッケージが帰属表示を必要とする場合、**`NOTICE`** を更新する。
 
-## Allowed Licenses
-MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, CC0-1.0, 0BSD, Unlicense (case-by-case)
+## 許可ライセンス
+MIT、Apache-2.0、BSD-2-Clause、BSD-3-Clause、ISC、CC0-1.0、0BSD、Unlicense（ケースバイケース）

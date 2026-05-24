@@ -1,41 +1,41 @@
 ---
 name: plan
-description: Use before starting any non-trivial task. Drafts requirements and acceptance criteria from the user's request, then waits for human approval before implementation begins. Required for tasks that touch multiple files, introduce new dependencies, or carry security implications.
+description: 非自明なタスクを始める前に使用する。ユーザーのリクエストから要件と受け入れ条件を起草し、実装開始前に人間の承認を待つ。複数ファイルを変更するタスク・新しい依存関係の追加・セキュリティへの影響がある変更で必須。
 ---
 
-# Plan Skill
+# Plan スキル
 
-## When to Use
-Run this skill before implementing any non-trivial feature, fix, or refactor.
+## 使用タイミング
+非自明な機能追加・バグ修正・リファクタリングを実装する前に必ず実行する。
 
-## Steps
+## 手順
 
-1. **Restate the goal** — Summarize what the user is asking for in 1–2 sentences.
-2. **Draft acceptance criteria** — List concrete, testable conditions that define "done".
-3. **Identify scope** — List files and modules that will change.
-4. **Flag risks** — Note any security, performance, or breaking-change concerns.
-5. **Propose implementation plan** — Step-by-step ordered list.
-6. **STOP and wait for human approval** — Do not write code until the user confirms the plan.
+1. **ゴールの再確認** — ユーザーの依頼を 1〜2 文で要約する。
+2. **受け入れ条件の起草** — 「完了」を定義する、具体的かつテスト可能な条件を列挙する。
+3. **スコープの特定** — 変更するファイルとモジュールを列挙する。
+4. **リスクの洗い出し** — セキュリティ・パフォーマンス・破壊的変更に関する懸念を記述する。
+5. **実装計画の提示** — 順序付きのステップリストを作成する。
+6. **停止してユーザー承認を待つ** — ユーザーが確認するまでコードを書かない。
 
-## Output Format
+## 出力フォーマット
 
 ```
-## Goal
-<one-sentence summary>
+## ゴール
+<1文の要約>
 
-## Acceptance Criteria
-- [ ] <criterion 1>
-- [ ] <criterion 2>
+## 受け入れ条件
+- [ ] <条件1>
+- [ ] <条件2>
 
-## Scope
-- <file/module>: <what changes>
+## スコープ
+- <ファイル/モジュール>: <変更内容>
 
-## Risks
-- <risk or "None">
+## リスク
+- <リスク または「なし」>
 
-## Plan
-1. <step>
-2. <step>
+## 実装計画
+1. <ステップ>
+2. <ステップ>
 ```
 
-Awaiting approval. Reply "approved" or provide corrections.
+承認待ち。「承認」または修正内容を返信してください。
