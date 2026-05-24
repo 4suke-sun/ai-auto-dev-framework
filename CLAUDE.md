@@ -24,6 +24,7 @@ Auto-mode で Claude Code を継続稼働させても事故ゼロになる規約
 ### スキル呼び出しルール
 | タイミング | スキル |
 |------------|--------|
+| テンプレートから作成直後 | `setup-repository` |
 | 仕様が曖昧・未指定 | `ask-if-underspecified` |
 | タスク着手前 | `plan` → ユーザー承認待ち |
 | 実装中 | `implement` |
