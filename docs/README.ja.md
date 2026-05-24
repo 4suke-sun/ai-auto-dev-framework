@@ -154,6 +154,18 @@ Auto-mode は以下のポイントで停止し、人間の承認を待ちます:
 
 ## カスタマイズガイド
 
+### 既存リポジトリへの導入
+
+既にプロジェクトがあり、後からガードレールを追加したい場合。Claude Code セッションで:
+
+```
+/install-framework
+```
+
+`.claude/`、`CLAUDE.md`、セキュリティワークフロー、フックを既存リポに選択的にコピーします。ソースコードや既存の CI には触れません。
+
+手動手順の詳細: [.claude/skills/install-framework/SKILL.md](../.claude/skills/install-framework/SKILL.md)
+
 ### CI のジョブを増減したい
 
 `.github/workflows/ci.yml` を編集。ブランチ保護の required checks も GitHub Settings で合わせて変更。
