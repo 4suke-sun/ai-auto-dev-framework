@@ -153,6 +153,18 @@ See [docs/agent-guides/hitl-gates.md](docs/agent-guides/hitl-gates.md) for detai
 
 ## Customization Guide
 
+### Installing into an existing repository
+
+Already have a project and want to add the guardrails? Run this in your Claude Code session:
+
+```
+/install-framework
+```
+
+This selectively copies `.claude/`, `CLAUDE.md`, security workflows, and hooks into your existing repo without touching your source code or existing CI.
+
+See [.claude/skills/install-framework/SKILL.md](.claude/skills/install-framework/SKILL.md) for the full manual procedure.
+
 ### Adding/removing CI jobs
 
 Edit `.github/workflows/ci.yml`. Update required checks in GitHub Settings → Branch protection accordingly.
