@@ -64,7 +64,19 @@ Launch Claude Code → It reads CLAUDE.md → Follows skills for each phase
 
 ### 5. Configure GitHub Settings (not inherited from template)
 
-These settings are **not** copied when you create a repo from a template. Configure manually:
+These settings are **not** copied when you create a repo from a template. Choose one method:
+
+#### Option A: Using Claude Code (recommended)
+
+Run the setup skill in your Claude Code session:
+
+```
+/setup-repository
+```
+
+This will automatically configure Code Scanning, branch protection, and auto-merge via `gh` CLI.
+
+#### Option B: Manual setup via GitHub Web UI
 
 | Setting | Path | Action |
 |---------|------|--------|
