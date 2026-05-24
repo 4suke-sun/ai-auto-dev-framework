@@ -2,9 +2,8 @@ name: Gitleaks
 
 on:
   push:
-    branches: ["**"]
-  pull_request:
     branches: [main]
+  pull_request:
 
 jobs:
   gitleaks:
