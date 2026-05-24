@@ -1,42 +1,42 @@
 ---
 name: second-opinion
-description: Use before merging complex or high-risk changes. Spawns a subagent to independently review the diff for correctness, security issues, test coverage, and convention violations. Use after self-review-checklist for extra assurance.
+description: 複雑またはリスクの高い変更をマージする前に使用する。サブエージェントを生成し、diff の正確性・セキュリティ問題・テストカバレッジ・規約違反を独立レビューする。追加の保証が必要な場合に self-review-checklist の後に使用する。
 ---
 
-# Second Opinion Skill
+# セカンドオピニオンスキル
 
-## When to Use
-- Changes touch security-sensitive code (auth, crypto, permissions)
-- Diff is larger than 300 lines
-- The change is architecturally significant
-- You are unsure about a design decision
+## 使用タイミング
+- セキュリティに関わるコード（認証・暗号・権限）を変更する場合
+- diff が 300 行を超える場合
+- アーキテクチャ上重要な変更の場合
+- 設計判断に自信がない場合
 
-## Steps
+## 手順
 
-1. Generate the diff:
+1. diff を生成する:
    ```bash
    git diff main...HEAD
    ```
 
-2. Spawn a review subagent with this prompt:
+2. 以下のプロンプトでレビュー用サブエージェントを生成する:
    ```
-   Review the following diff independently. Check for:
-   - Security vulnerabilities (injection, secrets, insecure defaults)
-   - Logic errors or edge cases not covered by tests
-   - Convention violations (Conventional Commits, TypeScript strict, Biome)
-   - Missing or inadequate tests
-   - License-incompatible dependencies
+   以下の diff を独立してレビューしてください。確認項目:
+   - セキュリティ脆弱性（インジェクション、シークレット、安全でないデフォルト値）
+   - テストでカバーされていないロジックエラーやエッジケース
+   - 規約違反（Conventional Commits、TypeScript strict、Biome）
+   - 不足または不十分なテスト
+   - ライセンス非互換の依存関係
    
    Diff:
-   <paste diff>
+   <diff を貼り付け>
    
-   Report findings as: [CRITICAL] / [WARNING] / [INFO]. Be terse.
+   結果を [CRITICAL] / [WARNING] / [INFO] で報告してください。簡潔に。
    ```
 
-3. Address all CRITICAL findings before merging.
-4. Document WARNING findings in the PR description.
+3. マージ前にすべての CRITICAL 指摘を対処する。
+4. WARNING 指摘は PR の説明に記載する。
 
-## Rules
+## ルール
 
-- The subagent must not have access to the original implementation context.
-- Never dismiss CRITICAL findings without human review.
+- サブエージェントは元の実装コンテキストにアクセスしてはならない。
+- 人間のレビューなしに CRITICAL 指摘を却下してはならない。

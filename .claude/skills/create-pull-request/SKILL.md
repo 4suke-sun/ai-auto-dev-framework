@@ -1,36 +1,36 @@
 ---
 name: create-pull-request
-description: Use when creating a GitHub pull request. Fills the PR template, verifies CI is likely to pass, and runs gh pr create. Never merge the PR — that is the human reviewer's job.
+description: GitHub プルリクエストを作成する際に使用する。PRテンプレートを記入し、CIが通る見込みを確認し、gh pr create を実行する。PRのマージは絶対に行わない — それはレビュアーの仕事。
 ---
 
-# Create Pull Request Skill
+# プルリクエスト作成スキル
 
-## When to Use
-After pushing a branch and before asking the user to review.
+## 使用タイミング
+ブランチをプッシュした後、ユーザーにレビューを依頼する前。
 
-## Pre-flight Checks
+## 事前チェック
 
-1. Run `self-review-checklist` skill first.
-2. Confirm branch is pushed: `git push -u origin <branch>`.
-3. Confirm CI would pass locally: `npm run lint && npm run typecheck && npm run test && npm run build`.
+1. まず `self-review-checklist` スキルを実行する。
+2. ブランチがプッシュ済みであることを確認: `git push -u origin <branch>`
+3. ローカルで CI が通ることを確認: `npm run lint && npm run typecheck && npm run test && npm run build`
 
-## PR Body Template
+## PR 本文テンプレート
 
 ```
 ## 変更内容
-<what changed>
+<何を変更したか>
 
 ## 変更理由
-<why this change is needed>
+<なぜこの変更が必要か>
 
 ## テスト方法
-<how to verify the change>
+<変更の検証方法>
 
 ## 影響範囲
-<what else might be affected>
+<他に影響を受ける可能性のある箇所>
 
 ## ロールバック手順
-<how to revert if needed>
+<必要な場合の戻し方>
 
 ## チェックリスト
 - [ ] テストが全て通過
@@ -40,17 +40,17 @@ After pushing a branch and before asking the user to review.
 - [ ] CLAUDE.md の規約に準拠
 ```
 
-## Create PR
+## PR 作成
 
 ```bash
 gh pr create --base main --title "<type>: <description>" --body "$(cat <<'EOF'
-<filled template>
+<記入済みテンプレート>
 EOF
 )"
 ```
 
-## Rules
+## ルール
 
-- **Never merge** — human reviewer merges only.
-- Set at least 1 required reviewer.
-- Title follows Conventional Commits format.
+- **絶対にマージしない** — マージはレビュアーのみが行う。
+- 必須レビュアーを最低1名設定する。
+- タイトルは Conventional Commits 形式に従う。
