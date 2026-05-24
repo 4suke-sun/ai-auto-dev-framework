@@ -25,6 +25,7 @@ Auto-mode で Claude Code を継続稼働させても事故ゼロになる規約
 | タイミング | スキル |
 |------------|--------|
 | テンプレートから作成直後 | `setup-repository` |
+| 既存リポへの導入時 | `install-framework` |
 | 仕様が曖昧・未指定 | `ask-if-underspecified` |
 | タスク着手前 | `plan` → ユーザー承認待ち |
 | 実装中 | `implement` |
